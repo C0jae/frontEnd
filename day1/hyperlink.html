@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HyperText(HyperLink)</title>
+
+    <style> /* html 태그들은 컨텐츠의 의미와 구조를 표시, html 문서의 모양(디자인요소)은 style 여러 속성으로 설정*/
+        html{   /* html 태그에 적용되는 디자인 속성 */
+            margin:Opx;padding:Opx;
+        }
+        body{   /* body 태그에 적용되는 디자인 속성 */
+            margin:Opx;padding:Opx;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 웹문서 사이의 연결(링크)는 a(anchor) -->
+    구글 사이트 이동 : <a href = "https://www.google.com">Google</a> <!-- href는 링크될 문서의 주소 : (1) 도메인 네임 -->
+    <br> <!-- br태크로 줄바꿈 -->
+    다음 사이트 이동 : <a href = "https://www.daum.net" target = "_blank">Daum</a>
+    <!-- target = "_blank" 는 새 탭으로 열기 -->
+    <br>
+    <b>같은 폴더위치의 파일 이동</b> : <a href = "mytest.html">mytest.html 보여주기</a>
+    <!-- 하나의 웹문서 내용이 화면을 벗어날때는 같은 문서의 특정 위치로 이동할 수 있다. -->
+    <br><a href = "#">아무 동작 없음</a>
+    <hr>
+    <!-- 이미지 포함 시키기 L img태그, 종료태그 없음 -->
+    <!-- <img src = "images/밤하늘.jpg">  -->
+    <!-- images 폴더가 day1 폴더 아래에 있을때만 적용된다. -->
+
+    <img src = "../iamges/밤하늘.jpg" width = 50%>  <!-- 윈도우 크기의 50% -->
+    <img src = "../iamges/달.jpg" width = 50%>
+    <img src = "../iamges/바다.jpg" width = 50%>
+
+    <hr>
+
+    <!-- 아래 3개의 이미지 너비를 합하면 화면의 90%, 3개가 같은 라인으로 배치된다. -->
+    <img src = "../iamges/밤하늘.jpg" width = 30%>
+    <img src = "../iamges/달.jpg" width = 30%>
+    <img src = "../iamges/바다.jpg" width = 30%>
+
+
+    <!-- 만약 이미지(3개) 너비를 40%로 하면 2개 80으로 같은 라인으로 배치, 1개는 라인 바꿔서 표시된다.
+        그러나 이미지 너비 50%일때는 합하면 100이 아니라 여백이 있으므로 오버가 되어서 모두
+        다른 라인에 표시 된다.-->
+    <hr>
+    <!-- div 태크로 이미지가 다른 라인에 표시된다. -->
+    <div> <img src = "../iamges/밤하늘.jpg" width = 30%> </div>
+    <div> <img src = "../iamges/달.jpg" width = 30%> </div>
+    <div> <img src = "../iamges/바다.jpg" width = 30%> </div>
+    
+    <!-- 이미지에 a태그 적용하기 -->
+    네이버로 이동하기 <a href = "https://www.naver.com"> <img src = "../iamges/밤하늘.jpg" width = "30%"> </a>
+
+</body>
+
+</html>
