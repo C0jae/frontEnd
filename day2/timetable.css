@@ -1,0 +1,28 @@
+table {
+    width: 700px;
+    border-collapse : collapse;
+    margin-right : 5px;
+    margin-left : 30px;
+}
+
+caption {
+    font-size : 1.3em;
+}
+
+th, td {
+    border : 1px solid black;
+    padding: 5px;
+}
+
+th {
+    color: white;
+    background-color: gray;
+}
+
+td {
+    text-align: center;
+}
+
+tr {
+    max-block-size: 20px;
+}

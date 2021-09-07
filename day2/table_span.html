@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day2-5 table span(칸 합치기)</title>
+
+    <style>
+        table {
+            height : 300px; /* px : 스크린 해상도에서 사용하는 단위 */
+            width : 400px;
+            margin : auto; /* 테이블 왼쪽 여백을 자동으로 설정(화면 중앙에 오도록) */
+            border-collapse : collapse;
+        }
+        td {
+            border : 1px solid black;
+            text-align : center;
+            width : 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 비교 : 정상테이블 -->
+    <table>
+        <tr>    <!-- td width 설정이 없으면 내용에 따라서 자동으로 결정됨다. -->
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+    </table>
+    <table> <!-- td 합치기(span) : 옆에있는 칸과 합치기 colspan, 아래있는 칸과 합치기 : rowspan -->
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td colspan="2">5</td>
+            <td rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td colspan="2">8</td>
+        </tr>
+    </table>
+</body>
+</html>

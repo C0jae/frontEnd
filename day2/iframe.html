@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day2-7 iframe</title>
+</head>
+<body>
+    <!--iframe -> inline frame의 약자 : 현재 문서에 다른 html 문서를 포함시킨다. -->
+    <!-- scr에 포함시킬 문서를 지정한다. : url(파일, 도메인네임...) -->
+    <iframe src="use_idselector.html" frameborder="0"
+    style="width: 100%; height: 400px;"></iframe>
+
+    <!-- http:// ~ 주소 url 포함도 가능 -->
+
+    <!-- 보안상의 이유로 deny(거절) -->
+    <iframe src="https://www.naver.com" frameborder="0"
+    style="width: 100%; height: 400px;"></iframe>
+
+    <!-- w3schools.com -->
+    <iframe src="https://www.w3schools.com" frameborder="0"
+    style="width: 100%; height: 400px;"></iframe></iframe>
+
+    <!-- a 태그에서 iframe 문서 설정하기 -->
+    <p>
+        <a href="table_span.html"target="menu1">다른 예제 보기</a>
+        <!-- 링크설정 : 페이지 이동, target 속성으로 링크위치 설정하기 -->
+            <!-- 예 : target="_blank" 는 새로운 탭에서 열기-->
+
+        <iframe src="" frameborder="0" name = "menu1" style="width: 100%; height: 400px;"></iframe>
+        <!-- 다른 사이트에서 가져오기 : 공유링크 -->
+
+        <div>
+        <a href="https://www.youtube.com/embed/1OzMRiwNBXw"target="menu2">마마무 깊은 밤을 날아서</a><br>
+
+        <iframe width="560" height="315" src="" 
+        title="YouTube video player" frameborder="0" name = "menu2" allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </p>
+</body>
+</html>
