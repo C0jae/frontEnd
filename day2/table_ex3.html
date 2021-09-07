@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day2-3 Table 과 style.css 파일</title>
+    <!-- style.css 정의된 style 특성을 사용한다. -->
+    <link rel = "stylesheet" href = "style.css">
+    <!-- css 파일명은 이름작성규칙을 사용하여 만든다. -->
+</head>
+<!-- 
+   selector(선택자) : 태그이름
+                     class 또는 id 속성으로 설정된 값
+            class, id 속성은 특정 태그에 부여하는 이름
+               ㄴ class : 같은 이름을 사용할 수 있는 다중 선택자
+               ㄴ id : 한개만 지정하는 단일 선택자
+ -->
+<body>
+     <table>
+        <caption class = "name">우리반 연락처</caption>
+         <tr> 
+            <th style = "width : 20%">번호</th> <!-- td*3 : td 3개 -->
+            <th style = "width : 30%">이름</th>
+            <th style = "width : 50%">연락처</th>
+         </tr>
+         <tr>
+            <td>1</td>
+            <!-- <td style = "color : tomato;">사나</td> -->
+            <td class = "name">사나</td>
+            <td>010-1234-7898</td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td class = "name">미나</td>
+            <td>010-4567-3456</td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td class = "name">다현</td>
+            <td>010-4117-3336</td>
+         </tr>
+      </table>
+</body>
+</html>
