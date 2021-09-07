@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day2-2 Table 과 css</title>
+    <!-- 
+      css : html 문서에 디자인 특성들을 적용하는 방법
+      태그 안에서는 syle 속성, 그러나 너무 많으면 style 태그 사용
+    -->
+    <style>
+       /* 태그 요소를 선택하는 선택자(selector)를 지정한다. */
+       td{  /* 선택자 : td태그, 모든 td태그에 적용한다. */
+         border : 1px solid gray;
+         text-align : center;
+       }
+       table{
+          width : 70%;
+         /* 태그요소의 외부여백(위, 아래, 왼쪽, 오른쪽 설정가능) */
+          margin-right: 5px;
+          margin-left: 30px;
+       }
+       th{
+          color : white;
+          background-color: brown;
+       }
+       td, th{
+          /* 태그요소의 내부여백(위, 아래, 왼쪽, 오른쪽 설정가능) */
+          padding-top: 5px;
+          padding-bottom: 5px;
+       }
+       caption {   /* 글꼴 크기는 16px 기본. 비율 : %, em */
+         font-size : 1.2em;   /* 1.2배 */
+       }
+    </style>
+</head>
+<body>
+    <!-- 
+        table : 표(행 / 열, row / column)
+        table 태그 : 생성 태그
+        tr 태그 : 행 생성
+            td 태그 : 행 안에서 열을 생성
+     -->
+
+     <!-- width를 %로 설정하면 부모 태그를 기준으로 비율을 설정한다. -->
+     <table>
+        <caption>우리반 연락처</caption>    <!-- caption : 테이블의 제목 -->
+         <tr>   <!-- style 속성으로 디자인 프로퍼티 설정하기 -->
+            <!-- td 대신에 제목 열 일때 th 사용 가능 : 가운데 정렬 및 글꼴 굵게 적용 -->
+            <th style = "width : 20%">번호</th> <!-- td*3 : td 3개 -->
+            <th style = "width : 30%">이름</th>
+            <th style = "width : 50%">연락처</th>
+         </tr>
+         <tr> <!-- border : 선의 굵기 모양 색상 설정 -->
+            <td>1</td>
+            <td>사나</td>
+            <td>010-1234-7898</td>
+            <!-- width 는 같은 열이면 같은 값이 적용 -->
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>미나</td>
+            <td>010-4567-3456</td>
+         </tr>
+     </table>
+</body>
+</html>
