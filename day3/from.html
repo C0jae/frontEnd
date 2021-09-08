@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day3-3 form 사용 - 사용자 입력 양식 만들기</title>
+</head>
+<body>
+    <!-- 1.사용자 입력은 2.서버에게 보내서 처리된다.
+        1. html로 2. 웹애플리케이션 프로그래밍으로(back-end)
+
+        input 태크 : 일반적인 텍스트 입력, 텍스트 내용에 따라 type을 설정한다.
+        사용자 입력 태그들은 form 태그 안에 있어야 서버로 전송할 수 있다.
+        form 태그 안에는 서버 전송을 위한 버튼도 필요
+    -->
+
+    <form action="">    <!-- action 속성은 서버로 보내고 처리될 url을 설정한다.
+        name 속성 반드시 설정해야 서버에서 값을 구별할 수 있다. -->
+        <input type="text" name="name">
+        <input type="number" name="age">
+        <input type="submit" value="전송">
+        <!-- 버튼모양을 클릭하면 action 설정된 곳으로 form 태크 안의 모든 데이터 전송-->
+    </form>
+    <!-- 서버를 설정하고 실행하면 url 주소 창 확인
+    file:///E:/Program/Study/frontEnd/day3/from.html?name=abc&age=1234
+
+    ?name=abc&age=1234 은 파라미터라고 부른다. 파라미터 2개, 파라미터 타입은 문자열
+    파라미터는 항상 ? 뒤에 나온다.
+    -->
+
+</body>
+</html>

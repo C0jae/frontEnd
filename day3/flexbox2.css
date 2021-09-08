@@ -35,4 +35,20 @@ a {
     }
 }
 
-/* 마진과 마진이 만났을 때 마진 상쇄경우 */
+/*  마진과 마진이 만났을 때 마진 상쇄의 
+경우가 있습니다.  */
+html,body {
+    height: 100%;
+}
+.map_wrap {
+    display: flex;
+	flex-direction: column;
+	height: 100%;	
+}
+.footer {
+    border-top: 3px solid tomato;
+}
+.footer a,p {
+    font-size: 12px;    /* 부모 태므인 footer 태크의 font-size를 지정해야 em을 사용할 수 있다. */
+    color:brown;
+}
