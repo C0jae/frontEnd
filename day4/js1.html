@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 예제#1</title>
+    <script>
+        document.write('<h1>javascript</h1>');
+        document.write('자바스크립트에 대해서 알아봅시다.');
+    </script>
+</head>
+<body>
+    <hr>    <!-- 선 긋기 -->
+    <h2>welcome!! 환영합니다.</h2>
+
+    <script>
+        document.write('My name is 홍길동');
+
+        /* 자바스크립트의 대화상자(다이얼로그) 함수 : 다른 출력보다 먼저 실행된다.*/
+        alert('나이를 알려주세요');
+    </script>
+
+    <button onclick="alert('지역을 알려주세요.')">추가 정보1</button>
+    <button onclick="yourInfo()">추가 정보2</button>  <!-- 사용자 정의 함수 -->
+    <button onclick="yourInfo2()">추가 정보3</button>  <!-- 사용자 정의 함수 : 나이 입력받기 -->
+    
+    <script>
+        function yourInfo() {    /* 사용자 정의 함수 선언하고 실행내용을 작성 */
+            // alert('당신의 반려동물을 알려주세요.');
+            var myanimal;   /* 변수 선언 : 값은 undifined로 대입된다. */
+            myanimal = prompt('반려동물 이름은?');
+            // document.write(myanimal);   /* 기존 문서 내용이 사라지고 입력값만 출력된다. */
+            console.log(myanimal);
+            document.getElementById('animal').innerHTML = myanimal;
+        }
+
+        function yourInfo2() {
+            var age;
+            age = prompt('반려동물의 나이를 입력하세요.');
+            console.log(age);
+            document.getElementById('age').innerHTML = age;
+        }
+    </script>
+
+    <p>반려동물 이름은 <span id="animal">?</span> 입니다.</p>
+    <p>입력하신 나이는 <span id="age">?</span>살 입니다.</p>
+</body>
+</html>
