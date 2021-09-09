@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>What Can JavaScript Do?</h2>
+
+    <p>JavaScript can change HTML attribute values.</p>
+
+    <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+    <p>전구를 클릭해 보세요. 현재상태 : <em id="state" style="color: green;">On</em></p>
+
+    <button onclick="bulbOn()">불을 켜주세요</button>
+
+    <img src="../images/pic_bulbon.gif" alt="light" style="width:100px; cursor: pointer;" id = "myImage" onclick="bulbToggle()">
+
+    <button onclick="bulbOff()">불을 꺼주세요</button>
+
+    <script>
+        // 태그 요소를 가져와 변수로 참조. const는 값이 변경이 더이상 없을때 사용
+        const img = document.getElementById('myImage')
+        const onoff = document.getElementById('state')
+        
+        function bulbOn() {
+            img.src ="../images/pic_bulbon.gif";
+            onoff.style.color='green';
+            onoff.innerHTML = 'On'
+        }
+
+        function bulbOff() {
+            img.src = "../images/pic_bulboff.gif";
+            onoff.style.color='red';
+            onoff.innerHTML = 'Off'
+        }
+
+        let state = 1;  // 전역변수, 1이면 on, 0이면 off
+        function bulbToggle() {
+            if(state == 1) {
+                bulbOff();
+                state = 0;
+            }
+            else {
+                bulbOn();
+                state = 1;
+            }
+        }
+    </script>
+
+    
+
+
+</body>
+</html>

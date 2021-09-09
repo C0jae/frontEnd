@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 예제 #2</title>
+</head>
+<body>
+    <!-- 참고 : 자바에서 { } 은 명령어 블록이다.(if, for, while, 메소드...) -> block scope 지역변수 -> 정상
+        자바스크립트 변수 var의 문제점 
+        1. 같은 변수의 이름을 중복해서 선언할 수 있다.
+        2. 블록스콥 적용이 안된다.
+        3. 변수를 선엉하지 않고도 사용할 수 있다. -> use strict 를 적용하여 해결한다.
+    -->
+
+    <script>
+        'use strict'    // 엄격모드 : 변수선언에 대한 처리. 선언하지 않은 변수를 사용했을 때 오류를 발생시킨다.
+        var v1 = 123; console.log(v1);
+        var v1 = 999; console.log(v1); /* 값 : 999 -> 계속 변수선언 가능 */
+        if (10>5) {
+            var v1 = 456;
+        }
+        console.log(v1);    //v1 값 : 456 -> 자바스크립트 var 선언은 블록스콥 적용이 안된다.
+        // temp = 999; console.log(temp);  // 변수 선언 없이도 정의 가능
+        console.log('-----------------------')
+    </script>
+
+    <script>
+        let v2 = 123; console.log(v2);
+        // let v2 = 999; console.log(v2); // 에러
+        if (10>5) {
+            let v2 = 456;
+            console.log(v2);
+        }
+        console.log(v2);    // 지역변수는 block scope 이다.
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+table {
+    width: 70%;
+}
+
+th {
+    background-color: coral;
+    width: 50%;
+    border-radius: 4px;
+    font-size: 1.2em;
+    color: white;
+}
+
+td {
+    text-align: center;
+    font-size: larger;
+    border : 1px solid black;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+}
