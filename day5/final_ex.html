@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 20%;
+        }
+
+        table {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        tr[id = "time"] {
+            background-color: coral;
+        }
+
+        td {
+            width: 20%;
+            padding: 5px;
+            border : 1px solid gray;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 문제 : 아래 2개 배열의 값으로 이용하여 화면에 보기 좋은 UI를 만들어보기 -->
+
+    <h1>일정표</h1>
+
+    <table>
+        <tr id = "time">
+            
+        </tr>
+
+        <tr id = "todo">
+
+        </tr>
+    </table>
+
+    <script>
+        const time = ['09:00','11:00','12:30','14:00','16:45'];     // 시간
+        const todo = ['수업','과제','점심식사','주간회의','자료조사'];  // 할일
+
+        timeText = "";
+        for (let i = 0; i < time.length; i++){
+            timeText += "<td id = 'time'>" + time[i]+ "</td>";
+        }
+
+        todoText = "";
+        for (let i = 0; i < todo.length; i++){
+            todoText += "<td id = 'todo'>" + todo[i]+ "</td>";
+        }
+
+        document.getElementById("time").innerHTML = timeText;
+        document.getElementById("todo").innerHTML = todoText;
+    </script>
+</body>
+
+</html>

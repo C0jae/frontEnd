@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul id = "result">
+
+    </ul>
+    <!-- 자바스크립트의 템플릿 문자열 : 기호는 `` 사용 
+          (1)코드와 콘솔에서 multi line (2) 표현식 ${변수명}를 사용하여 변수값 포함-->
+
+    <script>
+        console.log("4. 템플릿 문자열 테스트--------------");
+        const str = `I
+        like
+        java script`;   // multi line 문자열
+        // document.write(str); 적용안됨
+        // document.getElementById('result').innerHTML = str;   
+        console.log(str);
+        console.log(`I
+        like
+        java script`);
+        const fruit = 'Lemon';
+        const result = `        <li>Apple</li>
+        <li>${fruit}</li>
+        <li>Mango</li>`;
+        const $result = "<li>Apple</li><li>${fruit}</li><li>Mango</li>";
+        // document.getElementById('result').innerHTML = result;
+        document.getElementById('result').innerHTML = $result;
+        
+    </script>
+</body>
+</html>

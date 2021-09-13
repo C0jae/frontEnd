@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String method</title>
+</head>
+<body>
+    <!-- string method : 메소드 실행한 후에 원본 문자열을 변경?(X) or 새로운 문자열을 생성?(O) -->
+    <script>
+        // 변수선언 var 쓰지말자. 원시값 변수의 값이 실행중에 재할당(대입문) - let, 재할당 없다. 또는 객체  const
+        console.log("1. 복습-----------------");
+        let str = "Apple, Banana, Kiwi";
+        const result = str.toUpperCase();
+        str.toUpperCase();
+        console.log(str);
+        console.log(str.toUpperCase());
+        console.log(result);
+
+        str = "Mango";
+        // result = "Mango";   result는 const로 선언되어서 재할당 할 수 없다. -> 오류
+
+    </script>
+    <!-- String method
+    : substring, slice, substr비교 : slice 메소드는 마이너스값을 갖는다.
+    -1은 문자열 가장 마지막 인덱스
+     -->
+
+     <script>
+         console.log("2. slice 메소드--------------");
+         let str2 = "Apple, Banana, Kiwi";
+         console.log(str2.slice(-4));       // -4 인덱스 k부터 끝까지, kiwi
+         console.log(str2.slice(-12, -6));  // 인덱스 -12부터 인덱스 -6까지
+         console.log(str2.substr(-12, 3));  // 두번째 인자가 length, -12부터 3개
+     </script>
+     <!-- 정규식 : 문자열에서 특정 조합을 검사하기 위한 패턴. (ex) 문자열@문자열.com -> 기호를 사용하는 패턴)
+          정규식은 /    / 안에 작성. g(대소문자 구분), i(대소문자 구분 x) -->
+
+    <script>
+        console.log("3. 정규식으로 검색문자열 표현---------------")
+        let text = "Please visit Microsoft and Microsoft!";
+        let newText = text.replace(/Microsoft/g, "W3Xchools"); // Microsoft/g -> Microsoft 찾기 g 패턴 적용
+        console.log(newText);
+        newText = text.replace(/Microsoft/i, "W3Xchools");
+        console.log(newText);
+        
+        newText = "Please visit Microsoft!";
+        console.log(text.replace(/MICROSOFT/i, "KoreaIT"));
+    </script>
+
+</body>
+</html>

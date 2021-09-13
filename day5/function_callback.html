@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 콜백(callback) 함수 : 자바스크립트에서 많이 사용되는 형식
+         메소드 포함하여 함수안의 매개변수가 함수이다.
+         콜백함수를 통해서 실행동작을 다르게 할 수 있는 유연성이 높은 방법이다.
+    -->
+
+    <div style="margin : 5px; background-color: beige">현재시간 : <span id = "now"></span></div>
+
+    <button id = "btn1" onclick = "btn1()">클릭 이벤트 확인1 : onclick 속성으로 핸들러 함수 지정</button><br>
+    <button id = "btn2">클릭 이벤트 확인2 : 이벤트 리스너를 등록하는 방법</button>
+    <script>
+        const btn1 = function() {
+            console.log('첫번째 버튼 클릭했습니다.');
+        }
+        // btn2 버튼의 onclick 속성 대신에 이벤트 리스너를 등록한다.
+        // 이벤트 리스터에서 두번째 인자는 함수이다.
+        document.getElementById('btn2').addEventListener('click', function(){
+            console.log('두번째 버튼 클릭했습니다.');
+        })
+
+        /* 콜백함수 예제 : 타이머 함수 (1초 간격으로 시간을 표시) */
+        setInterval(function(){ // 익명함수
+            document.getElementById('now').innerHTML=Date();    // Date 함수로 현재 시간 가져오기
+        }, 1000); // 첫번째 인자는 핸들러 함수, 두번째 인자는 시간간격(단위 ms)
+
+        // 자바스크립트 객체지향 + 함수형 프로그래밍을 한다.
+
+        function console_star(){
+            console.log("*");
+        }
+
+        setInterval(console_star, 5000); // 함수이름으로 인자를 전달한다.
+
+    </script>
+</body>
+</html>
