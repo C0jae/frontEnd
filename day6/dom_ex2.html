@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <h4>오늘의 주제</h4>
+
+        <ul>
+            <li class="item item01 twice">트와이스</li>
+            <li class="item item02 girl">소녀시대</li>  <!-- item, item02, girl 3가지 스타일 적용 -->
+            <li>원더걸스</li>
+        </ul>
+
+        <ul>
+            <li>사나</li>
+            <li>나연</li>
+            <li>다현</li>
+            <li>미나</li>
+        </ul>
+    </div>
+
+    <button onclick="new_child()">새로운 리스트 추가</button>
+
+    <script>
+        const $main = document.getElementById('main');  // div 태그를 기준으로 아래 내용 확인
+        console.log($main.childNodes);  // #text 줄바꿈 문자 포함
+        console.log($main.children);
+        console.log($main.firstChild);  // #text 줄바꿈 문자 포함
+        console.log($main.firstElementChild);   // h4
+        console.log($main.childElementCount);   // 3
+
+        const $child = $main.firstElementChild;
+        console.log($child.innerHTML);
+        console.log($child.nextElementSibling); // 형제찾기
+        console.log($child.nextElementSibling.innerHTML); // 형제요소의 텍스트 가져오기
+
+        /* 자식노드 추가 */
+        function new_child(){
+            const $new =`
+                <li>smartTV</li>
+                <li>오디오</li>
+                <li>ipad</li>
+                <li>갤럭시</li>`
+            ;
+    
+            const $ul = document.createElement('ul');       // 새로운 요소 생성 - ul태그
+            $ul.innerHTML = $new;
+            $main.appendChild($ul);
+
+            // 생성된 요소의 css 스타일을 적용하는 방법
+            $ul.className = 'item';
+            $ul.classList.add('item01');
+        }
+
+    </script>
+
+    
+</body>
+</html>

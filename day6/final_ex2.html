@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="work">
+        <tr>
+            
+        </tr>
+
+
+    </table>
+
+    <script>
+        // const time = ['09:00', '11:00', '12:30', '14:00', '16:45'];  // 시간
+        // const todo = ['수업', '과제', '점심식사', '주간회의', '자료조사'] // 할 일
+        const works=[   
+            {time:'09:00', todo:'수업'},
+            {time:'11:00', todo:'과제'},
+            {time:'12:30', todo:'점심식사'},
+            {time:'14:00', todo:'주간회의'},
+            {time:'16:45', todo:'자료조사'}
+        ];      // 객체의 배열
+
+        /*
+        1) 배열이므로 forEach 메소드 사용
+        2) table 안의 tr 태그는 createElement로 만든다.
+        3) td 태그의 내용은 배열의 객체 프로퍼티를 활용한다. -> 템플릿 문자열과 표현식을 사용
+        4) 자식 요소 추가하는 appendChild 메소드 사용한다. 
+         */
+
+
+        works.forEach(function(work) {
+            const $work = `<td>` + work.time + `</td><td>` + work.todo + '</td>';
+            const $tr = document.createElement('tr');
+            $tr.innerHTML = $work;
+            document.getElementById('work').appendChild($tr);
+        });
+        
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

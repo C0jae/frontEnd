@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .init{
+            font-size: 1 rem;    /* em, rem : 배율로 크기를 조정할 수 있다. / 차이점 : em은 부모태그 기준, rem은 root태그(body) 기준 */
+            color: black;
+        }
+        .small_blue1{
+            font-size:0.7rem;
+            color: blue;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <h3>오늘의 과일</h3>
+    <ul>
+        <li id="apple">사과🍎</li>
+        <li id="banana">바나나🍌</li>
+        <li id="orange">오렌지🍊</li>
+    </ul>
+
+    <ul id="fruit">
+        <li ><span id = "f1">레몬🍋</span></li>
+        <li ><span id = "f2">레몬🍋</span></li>
+    </ul>
+
+    <button onclick = "init()">스타일 초기화</button>
+    <button onclick = "red()">글꼴 생삭변경 : RED</button>
+    <button onclick = "larger()">글꼴 크기변경 : 120%</button>
+    <button onclick = "small_blue1()">글꼴 small & blue 색상</button>
+
+    <script>
+        const $banana = document.getElementById('banana');      // 요소 1개만 찾아온다.
+        $banana.innerHTML = "Banana";
+
+        // 요소 여러개를 찾아오는 메소드
+        const $list = document.getElementsByTagName('li');    // 요소 4개 -> HTML 컬렉션 객체타입)을 생성한다.
+        console.log($list);
+        //배열로 전환이 필요하다. -> [...] 기호 스프레드 연산자 사용
+        [...$list].forEach(function(item){   // 배열객체로 foreach : $list를 구성하는 배열요소가 li 요소이다.
+            item.style.color='green';
+        });
+
+        function red(){
+            [...$list].forEach(function(fruit){ // 컬렉션 객체를 배열로 변환 $list.array / 콜백함수 매개변수는 순서의 의미가 있고 변수명은 임의로 작성
+                fruit.style.color='red';
+            })
+        }
+
+        function larger(){
+            [...$list].forEach((fruit) => fruit.style.fontSize='1.2em');
+            // arrow 함수로 사용 가능하다
+        }
+
+        function init(){
+            [...$list].forEach(function(fruit){
+                fruit.className = "init"
+            });
+        }
+
+        function small_blue1() {
+            const $lemon = document.querySelector('li > #f1');  // css 선택자로 요소를 가져온다.
+            $lemon.className = "small_blue1";
+            console.log($lemon);
+        }
+
+        // function small_blue2() {
+        //     const $lemon = document.querySelector('li > #f2');  // css 선택자로 요소를 가져온다.
+        //     $lemon.className = "small_blue2";
+        //     console.log($lemon);
+        // }
+
+        // DOM메소드 : document.getElementById, document.getElementsByTagName, document.getElementsByClassName
+                 //    document.querySelector 메소드 : 인자를 css 선택자
+
+    </script>
+
+</body>
+</html>

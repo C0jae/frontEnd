@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자바스크립트의 객체 : 객체 리터럴 {  } 사용해서 선언한다.(new 연산 사용도 가능) -->
+    <script>
+    /* 프로퍼티 : 객체의 특성을 나타내는 key/value 한쌍으로 만들어지는 값
+                 객체 식별자 변수는 const로 선언. 프로퍼티 값은 재할당이 가능하다.
+                 (객체 저장된 메모리에서 프로퍼티 변경 가능. const 는 객체 자체의 메모리 위치 변경 불가)
+    */
+
+        const counter = {   // 객체 리터럴 선언 (일반적인 자바의 객체 : 필드(프로퍼티)와 메소드)
+            num : 0,            // 프로퍼티 key : num, increase / 프로퍼티 value : num은 0, increase는 함수
+            increase : function() {     // 프로퍼티 값이 함수일때 메소드라고 한다.
+                this.num++;
+            }       // 프로퍼티 이름을 key 라고 부르는데 식별자(이름 규칙 동일)
+        }       // counter 식별자는 객체(인스턴스)를 참조(자바처럼 클래스 정의 없이 객체를 생성)
+
+
+        // 참고 : 자바처럼 new 연산으로 객체를 생성하기 위해 클래스 대신에 함수를 사용한다.(현재 진도에서는 pass)
+
+
+        console.log("1. counter 객체 확인--------------");
+        console.log(counter);
+        console.log(counter.num);
+        counter.mode = 'static';    // counter 객체에 mode 프로퍼티값을 'static'으로 하여라.    없는 프로퍼티를 동적으로 생성
+        console.log(counter);   // mode 프로퍼티 확인.
+        counter.increase();     // counter 객체의 메소드 실행.
+        console.log(counter.num);   // num값 확인 +1
+        console.log(counter['mode']);   // counter.mode와 동일
+
+        console.log("2. person 객체 생성-----------------")
+        /* 이름 : 'sana', 나이 : 27, say 메소드 동작 : alert으로 자기소개(나는 사나입니다.) */
+        const person = {
+            name : 'sana',
+            age : 27,
+            say : function() {
+                alert('나는 ' + this.name + ' 입니다.');
+            }
+        }
+
+        console.log(person);
+        person.say();
+        person['name'] = 'nayeon';
+        person.say();
+
+        // 참고 : 자바스크립트 객체 JSON 이라고 불리면서 비동기 통신에 데이터 전송방식으로 사용되고 있다.
+
+        // 객체 리터럴에서 동적으로 프로퍼티키를 만들수 있다.
+        const prefix = 'prop';
+        let i=0;
+        const obj = {   // 객체 식별자 obj
+            [`${prefix}-${++i}`]:i, // 프로퍼티 key와 value에 변수 사용 가능
+            [`${prefix}-${++i}`]:i,
+            [`${prefix}-${++i}`]:i,
+        };
+        console.log(obj);
+
+    </script>
+
+</body>
+</html>
