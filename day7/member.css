@@ -1,0 +1,40 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100&display=swap');
+* {
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+} */
+
+
+
+
+th {
+    background-color: coral;
+    border-radius: 4px;
+    font-size: 0.8em;
+    color: white;
+}
+
+/* 속성을 이용한 선택자 */
+input select {
+    padding: 7px;
+    border-radius: 4px;
+}
+
+input[type=submit], input[type=reset] {
+    cursor: pointer;    /* 손가락모양으로 바꾸기 */
+    border: none;
+    border-radius: 4px;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+    background-color: coral;
+    
+}
+
+input[name=name], input[name=password], input[type=email], input[name=age] {
+    width: 50%;
+}
+
+/* 
+    UI 구현 : 레이아웃, 색상, 글꼴
+*/

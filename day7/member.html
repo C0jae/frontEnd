@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day3-4 member 회원등록</title>
+    <link rel="stylesheet" href="member.css">
+
+    <script>
+        /*
+        form 요소 : input, select의 value 속성값 검사하기 - 유효성 검사
+        ex) 이름에는 특수문자 제외, 나이 0 ~ 100, 취미는 1개 이상 선택 등... -> string 메소드를 사용하면 길고 복잡. -> 정규식 사용(후에 진행)
+    
+        방법1) form 태그 onsubmit 이벤트 속성에 함수를 지정하여 검사한다.
+        방법2) form 태그의 type="submit" 버튼 대신에 일반 버튼을 사용하고 자바스크립트에서 submit() 메솓를 동작시킨다.
+        */
+
+        function validCheck() {
+            const frm = document.frmReg;
+            if (frm.password.value.length < 8) {
+                alert('패스워드는 8글자 이상으로 하세요.');
+                frm.password.focus();   // 포커스(커서)이동
+                return false;
+            }
+
+            // 2. 나이 : 태그 min, max 무시. -> 20 ~ 70 값 범위로 검사하기
+            if (frm.age.value < 20 || frm.age.value > 70) {
+                alert('나이는 20살 이상 70살 이하 이어야 합니다.');
+                frm.focus.age;
+                return false;
+            }
+
+            for (let i = 0; i<frm.hobby.length; i++) {
+                if (frm.hobby[i].checked) {
+                    return true;
+                }
+            }
+
+            // 체크한것이 한개도 없을경우
+            alert('취미를 최소 1개 이상 선택해주세요.');
+            return false;
+
+
+
+            // if (true) {
+            //     console.log(frm.hobby.length);
+            //     return false;
+            // }
+
+            // if (true) { // 이 위치는 위의 조건이 거짓일때만 실행된다.
+            //     alert('test');
+            // }
+        }
+
+        function validCheck2() {
+            const frm = document.frmReg;
+
+            // validCheck 에 작성한 유효성 검사 실행을 똑같이 할 수 있게 구현해보기
+            let flag = false;
+            let isValid = true;
+            if (frm.name.value == "") {
+                alert('이름은 필수 입력입니다.');
+                isValid = false;
+            }
+            
+            else if (frm.password.value.length < 8) {
+                alert('패스워드는 8글자 이상으로 하세요.');
+                frm.password.focus();   // 포커스(커서)이동
+                isValid = false;
+            }
+            
+            else if (frm.age.value < 20 || frm.age.value > 70) {
+                alert('나이는 20살 이상 70살 이하 이어야 합니다.');
+                frm.focus.age;
+                isValid = false;
+            }
+            
+            for (let i = 0; i<frm.hobby.length; i++) {
+                if (frm.hobby[i].checked) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            // 체크한것이 한개도 없을경우
+            if(!flag) {
+                alert('취미를 최소 1개 이상 선택해주세요.');
+                isValid = false;
+            }
+            else {
+                frm.action='success.html';  // action 속성값을 변경해서 submit 할때
+                frm.submit();
+            }
+            
+
+        }
+    </script>
+
+</head>
+<body>
+    <div style="width: 70%; margin: auto;">
+        <h3>회원등록</h3>
+        <!-- 새로운 데이터를 저장하는 동작과 관련될때는 url 창에
+             데이터를 표시하지 않는다. method="POST"
+             특정 검색어로 조회 동ㅈㄱ을 하는 경우에는 url 창에 파라미터 값을
+             표시하는 것이 일반적인 동작이다. method="GET" -->
+        <form action="result.html" name="frmReg" method="POST" onsubmit="return validCheck()">  <!-- 방법1) onsubmit -->
+            <!-- 함수 리턴이 false이면 submit 동작 안한다. -->
+            <!-- post로 바꾸면 입력값이 url에 보이지 않는다. -->
+            <table style="width:100%; margin: auto;">   <!-- 부모 태크 너비의 70% -->
+                <tr>
+                    <th><label>이름</label></th> <!-- 필수 입력, readonly : 읽기만 가능 -->
+                    <td><input type="text" name="name" placeholder="이름 입력(필수)" required></td>
+                </tr>
+                <tr>
+                    <th>패스워드</th>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <th>나이</th>
+                    <td><input type="number" name="age" min="10" max="99"
+                        value="30"></td>    <!-- value : 기본값 -->
+                </tr>
+                <tr>
+                    <th>주소</th>
+                    <td><!-- 선택 리스트 만들기 위해 select 태그 사용 -->
+                        <select name="address">
+                            <!-- option 태그안에 문자열은 화면에 보이는것, 
+                                value 안에 문자열은 서버로 전송되는것 -->
+                            <option value="서울">서울</option>
+                            <option value="인천" selected>인천</option> <!-- selected는 기본 선택값 -->
+                            <option value="대전">대전</option>
+                            <option value="광주">광주</option>
+                            <option value="부산">부산</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td>    <!-- radio 버튼은 여러개 중에 하나만 선택할 때 사용
+                                name을 같게 해야한다.
+                            -->
+                        <input type="radio" value="male" name="gender" id="male">
+                        <label for="male">남자</label>
+                        <!-- label과 연결시킬 input은 id 속성이 필요하다. 웹접근성 구현
+                            label을 선택해서 해당 form 요소가 focus를 갖도록 한다. -->
+                        <input type="radio" value="female" name="gender" id="female" checked>   <!-- checked는 기본 선택 -->
+                        <label for="female">여자</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>취미</th>
+                    <!-- 여러개의 복수로 선택할 수 있는 checkbox 사용
+                        name을 같게 한다. 서버로 전송될때는 배열로 처리된다.
+                    -->
+                    <td>
+                        <input type="checkbox" name="hobby" value="축구" id="football">
+                        <label for="football">축구</label>
+                        <input type="checkbox" name="hobby" value="농구" id="basketball">
+                        <label for="basketball">농구</label>
+                        <input type="checkbox" name="hobby" value="스키" id="ski">
+                        <label for="ski">스키</label>
+                        <input type="checkbox" name="hobby" value="달리기" id="running">
+                        <label for="running">달리기</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="가입하기">
+                        <!-- submit : 서버에게 데이터를 제출(form action 속성값에 설정된 url)
+                             action이 .html은 데이터 전송확인은 못한다. url 이동만 확인 -->
+                        <input type="reset" value="다시쓰기">
+                        <button type="button" onclick="validCheck2()">가입하기[2]</button>
+                        <!-- form 태그안에서 type=submit이 default -->
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+</html>
